@@ -15,7 +15,7 @@ import {
   deleteProductFromCart,
   removeProductFromCart,
 } from "../../redux/CartSlice";
-import { LucideDelete, Trash2 } from "lucide-react";
+import { LucideDelete, Minus, Plus, Trash2 } from "lucide-react";
 
 export default function Cart() {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,10 +85,10 @@ export default function Cart() {
                 </div>
                 <div className="col-span-2">
                   <Label htmlFor={`title-${item.id}`}>{item.title}</Label>
-                  <p id={`title-${item.id}`} className="w-20">
-                    <button onClick={() => handleRemove(item)}>-</button>
+                  <p id={`title-${item.id}`} className="flex gap-2 items-center">
+                    <Button variant="outline" onClick={() => handleRemove(item)} className="flex items-center"><Minus /></Button>
                     {item.quantity}
-                    <button onClick={() => handleAdd(item)}>+</button>
+                    <Button variant="outline" onClick={() => handleAdd(item)} className="flex items-center"><Plus /></Button>
                   </p>
                   <span className="ml-2">x ₹{item.price}</span>
                 </div>
@@ -96,7 +96,7 @@ export default function Cart() {
                   <p className="font-semibold">
                     ₹{item.price * item.quantity}
                   </p>
-                  <button onClick={()=>handleDelete(item)}>
+                  <button className="my-2" onClick={()=>handleDelete(item)}>
                     <Trash2 />
                   </button>
                 </div>
