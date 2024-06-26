@@ -15,6 +15,8 @@ import Sort from "../../@/components/ui/Sort";
 import { addProductToCart } from "../../redux/CartSlice";
 
 const ProductListing = () => {
+
+  //Cropping the text after a certain limit 
   const truncateTitle = (title) => {
     const words = title.split(" ");
     if (words.length > 5) {
@@ -25,6 +27,7 @@ const ProductListing = () => {
 
   const dispatch = useDispatch();
 
+  //Adding products to the cart
   const onAddToCart = (item) => {
     dispatch(addProductToCart(item));
   };

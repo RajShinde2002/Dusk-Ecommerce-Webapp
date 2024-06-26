@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "../../@/components/ui/button";
 import {
   Sheet,
@@ -10,11 +10,13 @@ import {
   SheetTrigger,
 } from "../../@/components/ui/sheet";
 import { useDispatch } from "react-redux";
-import { clearFilter, filterByCategory } from "../../redux/ProductSlice";
+import { filterByCategory } from "../../redux/ProductSlice";
 
 export default function Filter() {
+
   const dispatch = useDispatch();
   
+  //Clearing all the existing filters by reloading the screen
   const handleClear = () => {
     window.location.reload()
   }
@@ -37,17 +39,18 @@ export default function Filter() {
     initialSelectedCategories
   );
 
+  //Assigning true when a category is checked
   const handleCategoryChange = (e) => {
     const { name, checked } = e.target;
     setSelectedCategories((prev) => ({ ...prev, [name]: checked }));
   };
 
+  //Applying the selected filters
   const handleClick = () => {
     const selected = Object.keys(selectedCategories).filter(
       (category) => selectedCategories[category]
     );
     dispatch(filterByCategory(selected));
-    // setSelectedCategories(initialSelectedCategories);
   };
 
 

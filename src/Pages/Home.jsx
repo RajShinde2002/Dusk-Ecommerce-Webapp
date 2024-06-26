@@ -5,7 +5,9 @@ import Trending from "./Home/Trending";
 const Home = () => {
   return (
     <>
+     {/* Displaying Hero Component */}
       <Hero />
+     {/* Displaying Trending Component */}
       <Trending />
     </>
   );

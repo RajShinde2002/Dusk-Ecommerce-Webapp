@@ -13,14 +13,14 @@ export const CartSlice = createSlice({
       const existingProduct = state.cart.find(item => item.id === id);
 
       if (existingProduct) {
-        // If product exists, increase its quantity
+        // If product exists, increasing its quantity
         existingProduct.quantity += 1;
       } else {
-        // If product doesn't exist, add it to cart with quantity 1
+        // If product doesn't exist, adding it to cart
         state.cart.push({ ...action.payload, quantity: 1 });
       }
 
-      // Update total amount and total price
+      // Updating total amount and price
       state.totalAmount += 1;
       state.totalPrice += action.payload.price;
     },
@@ -29,17 +29,17 @@ export const CartSlice = createSlice({
       const existingProduct = state.cart.find(item => item.id === id);
 
       if (existingProduct && existingProduct.quantity > 1) {
-        // Decrease quantity if more than 1 item exists
+        // Decreasing quantity if more than 1 item exists
         existingProduct.quantity -= 1;
 
-        // Update total amount and total price
+        // Updating total amount and price
         state.totalAmount -= 1;
         state.totalPrice -= existingProduct.price;
       } else if (existingProduct && existingProduct.quantity === 1) {
-        // Remove product from cart if only 1 item exists
+        // Removing product from cart if only 1 item exists
         state.cart = state.cart.filter(item => item.id !== id);
 
-        // Update total amount and total price
+        // Updating total amount and price
         state.totalAmount -= 1;
         state.totalPrice -= existingProduct.price;
       }
@@ -50,11 +50,11 @@ export const CartSlice = createSlice({
       const existingProduct = state.cart.find(item => item.id === id);
       console.log(existingProduct)
       if (existingProduct) {
-        // Update total amount and total price before removing the product
+        // Updating total amount and price before removing the product
         state.totalAmount -= existingProduct.quantity;
         state.totalPrice -= existingProduct.price * existingProduct.quantity;
 
-        // Remove the product from the cart
+        // Removing the product from the cart
         state.cart = state.cart.filter(item => item.id !== id)}}
   },
 });

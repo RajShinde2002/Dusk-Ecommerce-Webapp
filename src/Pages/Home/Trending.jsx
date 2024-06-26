@@ -12,22 +12,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Trending() {
+
+  //Cropping the text after a certain limit 
   const truncateTitle = (title) => {
     const words = title.split(" ");
-    if (words.length > 3) {
-      return words.slice(0, 3).join(" ") + "...";
+    if (words.length > 5) {
+      return words.slice(0, 5).join(" ") + "...";
     }
     return title;
   };
 
   const dispatch = useDispatch();
 
+  //Adding products to the cart
   const onAddToCart = (item) => {
-    console.log({ item });
     dispatch(addProductToCart(item));
   };
 
   const products = useSelector((state) => state.product.products);
+
+  // Selecting first product of each category for display
   const firstProductsOfEachCategory = Object.values(
     products.reduce((acc, product) => {
       if (!acc[product.category]) {

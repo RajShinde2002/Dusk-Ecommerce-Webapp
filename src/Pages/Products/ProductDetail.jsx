@@ -9,8 +9,8 @@ export default function ProductDetail() {
   const dispatch = useDispatch()
   const { id } = useParams();
 
+  //Adding products to the cart
   const onAddToCart = (item) => {
-    console.log({item})
     dispatch(addProductToCart(item));
   }
 

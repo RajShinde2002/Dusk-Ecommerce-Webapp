@@ -15,32 +15,36 @@ import {
   deleteProductFromCart,
   removeProductFromCart,
 } from "../../redux/CartSlice";
-import { LucideDelete, Minus, Plus, Trash2 } from "lucide-react";
+import { Minus, Plus, Trash2 } from "lucide-react";
 
 export default function Cart() {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cart);
 
-  // Calculate total price of items in the cart
+  // Calculating total price of items in the cart
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
 
+  //Adding quantity of product
   const handleAdd = (item) => {
     dispatch(addProductToCart(item));
   };
 
+  //Removing quantity of product
   const handleRemove = (item) => {
     dispatch(removeProductFromCart(item));
   };
 
+  //Deleting product from cart
   const handleDelete = (item) => {
     console.log(item)
     dispatch(deleteProductFromCart(item));
   };
 
+  //Closing the cart
   const handleClose = () => {
     setIsOpen(false);
   };
@@ -67,9 +71,11 @@ export default function Cart() {
           <DialogTitle>Your Cart</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4 max-h-[300px] overflow-y-auto">
+          {/* If no cart items are present, show this message */}
           {cartItems.length === 0 && (
             <p className="text-black">Your cart is empty</p>
           )}
+          {/* If cart items are present, map through it */}
           {cartItems &&
             cartItems.map((item) => (
               <div

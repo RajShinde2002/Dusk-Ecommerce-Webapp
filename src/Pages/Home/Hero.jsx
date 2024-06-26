@@ -17,12 +17,14 @@ import heroimg5 from "../../assets/heroimg5.png"
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  //Defining array of images for carousel
   const images = [heroimg1, heroimg2, heroimg3, heroimg4, heroimg5]
 
+  //Slide will change after every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % 5);
-    }, 3000); // Change slide every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
