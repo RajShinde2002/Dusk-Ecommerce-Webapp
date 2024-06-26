@@ -17,11 +17,11 @@ npm install
 
 npm run dev
 
-Usage
+# Usage
 Once the development server is running, you can access the application locally at http://localhost:5173. Navigate through different pages, add products to the cart, and explore the features of the e-commerce website.
 
-Technologies Used
-React: JavaScript library for building user interfaces.
-Redux: Predictable state container for JavaScript apps.
-Tailwind CSS: Utility-first CSS framework for rapid UI development.
-Vite: Next-generation front-end tooling for modern web development.
+# Technologies Used
+1. React: JavaScript library for building user interfaces.
+2. Redux: Predictable state container for JavaScript apps.
+3. Tailwind CSS: Utility-first CSS framework for rapid UI development.
+4. Vite: Next-generation front-end tooling for modern web development.
