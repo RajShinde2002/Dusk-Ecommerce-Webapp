@@ -12,8 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Trending() {
-
-  //Cropping the text after a certain limit 
+  //Cropping the text after a certain limit
   const truncateTitle = (title) => {
     const words = title.split(" ");
     if (words.length > 5) {
@@ -42,20 +41,25 @@ export default function Trending() {
   );
   return (
     <>
-      <h2 className="flex justify-center text-3xl font-bold my-10">
+      <h2 className="flex justify-center text-center text-3xl font-bold my-10">
         Trending Products Just For You
       </h2>
       <div className="flex flex-col md:flex-row gap-10 justify-center items-center flex-wrap">
         {firstProductsOfEachCategory.map((product) => (
-          <Card key={product.id} className="w-[250px] hover:shadow-xl">
+          <Card
+            key={product.id}
+            className="w-[250px] hover:shadow-xl hover:scale-105 transition-all"
+          >
             <Link to={`/products/${product.id}`}>
               <CardHeader>
                 <CardContent>
-                  <img
-                    className="h-48 w-48 object-contain"
-                    src={product.image}
-                    alt={product.title}
-                  />
+                  <React.Suspense fallback={<h2 className="text-black">Loading...</h2>}>
+                    <img
+                      className="h-48 w-48 object-contain"
+                      src={product.image}
+                      alt={product.title}
+                    />
+                  </React.Suspense>
                 </CardContent>
                 <CardTitle className="truncate text-lg">
                   {truncateTitle(product.title)}

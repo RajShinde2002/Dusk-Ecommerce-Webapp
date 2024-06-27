@@ -41,7 +41,7 @@ const ProductListing = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-10 justify-center items-center flex-wrap">
         {products.map((product) => (
-          <Card key={product.id} className="w-[250px] hover:shadow-xl">
+          <Card key={product.id} className="w-[250px] hover:shadow-xl hover:scale-105 transition-all">
             <Link to={`/products/${product.id}`}>
               <CardHeader>
                 <CardContent>
@@ -58,7 +58,7 @@ const ProductListing = () => {
             </Link>
             <CardFooter className="flex justify-between text-xl">
               <p>{"₹" + product.price}</p>
-              <Button onClick={() => onAddToCart(product)}>Add to cart</Button>
+              <Button className="bg-[#FF3F01]" onClick={() => onAddToCart(product)}>Add to cart</Button>
             </CardFooter>
           </Card>
         ))}

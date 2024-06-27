@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
@@ -6,8 +6,14 @@ import About from "./Pages/About";
 import Layout from "./Layout";
 import { useDispatch } from "react-redux";
 import { allProducts } from "./redux/ProductSlice";
-import ProductListing from "./Pages/Products/ProductListing";
-import ProductDetail from "./Pages/Products/ProductDetail";
+
+// Use React.lazy for lazy loading components
+const ProductListing = React.lazy(() =>
+  import("./Pages/Products/ProductListing")
+);
+const ProductDetail = React.lazy(() =>
+  import("./Pages/Products/ProductDetail")
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +30,7 @@ function App() {
     };
 
     fetchProducts();
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
@@ -32,8 +38,27 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/products" element={<ProductListing />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
+          {/* Using Suspense with a fallback for lazy-loaded components */}
+          <Route
+            path="/products"
+            element={
+              <Suspense
+                fallback={<h2 className="text-black text-3xl">Loading...</h2>}
+              >
+                <ProductListing />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/products/:id"
+            element={
+              <Suspense
+                fallback={<h2 className="text-black text-3xl">Loading...</h2>}
+              >
+                <ProductDetail />
+              </Suspense>
+            }
+          />
         </Routes>
       </Layout>
     </Router>
