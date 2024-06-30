@@ -14,6 +14,7 @@ import {
   addProductToCart,
   deleteProductFromCart,
   removeProductFromCart,
+  resetCart
 } from "../../redux/CartSlice";
 import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
 
@@ -40,9 +41,13 @@ export default function Cart() {
 
   //Deleting product from cart
   const handleDelete = (item) => {
-    console.log(item)
     dispatch(deleteProductFromCart(item));
   };
+
+  const handleReset = () => {
+    handleClose();
+    dispatch(resetCart(cartItems));
+  }
 
   //Closing the cart
   const handleClose = () => {
@@ -110,7 +115,7 @@ export default function Cart() {
           </Button>
           <Button
             type="submit"
-            onClick={handleClose}
+            onClick={handleReset}
             disabled={cartItems.length === 0}
           >
             Checkout
