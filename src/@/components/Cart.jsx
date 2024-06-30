@@ -52,7 +52,7 @@ export default function Cart() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild className="w-20">
-        <Button variant="outline" onClick={() => setIsOpen(true)}>
+        <Button className="p-0" variant="outline" onClick={() => setIsOpen(true)}>
           <ShoppingCart />
           ({cartItems.length})
         </Button>
@@ -61,7 +61,7 @@ export default function Cart() {
         <DialogHeader>
           <DialogTitle>Your Cart</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 py-4 max-h-[300px] overflow-y-auto">
+        <div className="grid gap-4 py-4 max-h-[200px] md:max-h-[300px] overflow-y-auto">
           {/* If no cart items are present, show this message */}
           {cartItems.length === 0 && (
             <p className="text-black">Your cart is empty</p>

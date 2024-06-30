@@ -79,7 +79,7 @@ export default function Filter() {
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <span>
+            <span className="flex gap-2">
               <Button variant="outline" onClick={handleClear}>Clear</Button>
               <Button type="submit" onClick={handleClick}>
                 Save changes

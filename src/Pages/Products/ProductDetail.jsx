@@ -19,19 +19,19 @@ export default function ProductDetail() {
       {products
         .filter((i) => i.id === parseInt(id))
         .map((item) => (
-          <Card className="m-10 border-black p-10" key={item.id}>
-            <div className="flex gap-10" key={item.id}>
+          <Card className="m-10 border-[#888] md:p-10 p-6" key={item.id}>
+            <div className="flex gap-0 md:gap-10 flex-col md:flex-row justify-center items-center" key={item.id}>
               <img
-                className="w-[20%] h-[10%] rounded-2xl"
+                className="w-[100%] h-[10%] rounded-2xl md:w-[20%]"
                 src={item.image}
                 alt="Product Image"
               />
               <div className="flex flex-col">
-                <h2 className="text-black text-[35px] font-medium my-2">
+                <h2 className="text-black text-[25px] md:text-[35px] font-medium my-2">
                   {item.title}
                 </h2>
-                <p className="text-[20px] text-wrap">{item.description}</p>
-                <p className="flex bg-slate-950 justify-center items-center w-12 rounded-sm p-1 my-3">
+                <p className="md:text-[20px] text-[14px] text-wrap first-letter:uppercase">{item.description}</p>
+                <p className="flex bg-slate-950 justify-center items-center w-12 rounded-sm p-0 md:p-1 my-3">
                   <span className=" text-white">
                     {item.rating.rate}
                   </span>
@@ -52,9 +52,9 @@ export default function ProductDetail() {
                     </svg>
                   </span>
                 </p>
-                <p className="text-black">Rated by {item.rating.count} people</p>
-                <div className="text-black flex justify-between mt-5">
-                  <p className="text-black text-[30px]">{"₹" + item.price}</p>
+                <p className="text-black md:text-[20px] text-[14px]">Rated by {item.rating.count} people</p>
+                <div className="text-black flex justify-between md:items-center mt-0 md:mt-5 flex-col md:flex-row w-full">
+                  <p className="text-black text-[30px] my-2 md:my-0">{"₹" + item.price}</p>
                   <Button onClick={()=>onAddToCart(item)}>Add to Cart</Button>
                 </div>
               </div>

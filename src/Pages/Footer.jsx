@@ -26,7 +26,10 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="https://tailwindcss.com/" className="hover:underline">
+                  <a
+                    href="https://tailwindcss.com/"
+                    className="hover:underline"
+                  >
                     Tailwind CSS
                   </a>
                 </li>
@@ -90,8 +93,8 @@ const Footer = () => {
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0 gap-3">
             <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              href="https://github.com/RajShinde2002"
+              className="text-gray-500 hover:text-gray-900 dark:hover:text-white md:ms-5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +110,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
+              href="https://www.linkedin.com/in/raj-shinde21/"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white flex items-center space-x-2"
             >
               <svg
