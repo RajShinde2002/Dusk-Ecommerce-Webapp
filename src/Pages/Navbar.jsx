@@ -58,7 +58,7 @@ const Navbar = () => {
                 className="block py-2 px-3 text-gray-900 rounded hover:text-[#FF3F01] group"
               >
                 About
-                <div className="h-[2px] w-0 group-hover:w-full bg-[#FF3F01] transition-all duration-300"></div>
+                <div className="h-[2px] w-0 group-hover:w-full bg-[#FF3F01] transition-all duration-500"></div>
               </Link>
             </li>
           </ul>
