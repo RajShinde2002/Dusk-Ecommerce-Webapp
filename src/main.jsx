@@ -1,10 +1,11 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
-import './index.css';
-import { registerSW } from 'virtual:pwa-register';
-import { Provider } from 'react-redux';
-import store from '../src/redux/store';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./index.css";
+import { registerSW } from "virtual:pwa-register";
+import { Provider } from "react-redux";
+import store from "../src/redux/store";
+import { Toaster } from "../src/@/components/ui/toaster";
 
 // Register the service worker
 const updateSW = registerSW({
@@ -12,13 +13,14 @@ const updateSW = registerSW({
   onOfflineReady() {},
 });
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <Toaster />
     </Provider>
   </React.StrictMode>
 );

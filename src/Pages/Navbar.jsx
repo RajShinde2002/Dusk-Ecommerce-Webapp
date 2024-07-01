@@ -34,9 +34,10 @@ const Navbar = () => {
               <Link
                 to={"/"}
                 onClick={toggleMenu}
-                className="block py-2 px-3 text-gray-900 rounded hover:text-[#FF3F01] hover:translate-y-[-3px] transition-all"
+                className="block py-2 px-3 text-gray-900 rounded hover:text-[#FF3F01] group"
               >
                 Home
+                <div className="h-[2px] w-0 group-hover:w-full bg-[#FF3F01] transition-all duration-500"></div>
               </Link>
             </li>
 
@@ -44,18 +45,20 @@ const Navbar = () => {
               <Link
                 to={"/products"}
                 onClick={toggleMenu}
-                className="block py-2 px-3 text-gray-900 rounded hover:text-[#FF3F01] hover:translate-y-[-3px] transition-all"
+                className="block py-2 px-3 text-gray-900 rounded hover:text-[#FF3F01] group"
               >
                 Products
+                <div className="h-[2px] w-0 group-hover:w-full bg-[#FF3F01] transition-all duration-500"></div>
               </Link>
             </li>
             <li>
               <Link
                 to={"/about"}
                 onClick={toggleMenu}
-                className="block py-2 px-3 text-gray-900 rounded hover:text-[#FF3F01] hover:translate-y-[-3px] transition-all"
+                className="block py-2 px-3 text-gray-900 rounded hover:text-[#FF3F01] group"
               >
                 About
+                <div className="h-[2px] w-0 group-hover:w-full bg-[#FF3F01] transition-all duration-300"></div>
               </Link>
             </li>
           </ul>
