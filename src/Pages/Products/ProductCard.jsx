@@ -41,7 +41,7 @@ const ProductCard = ({ product, onAddToCart }) => {
           onClick={() => {
             onAddToCart(product);
             toast({
-              title: "Woohoo! Product added to the cart",
+              title: "🎉 Product added to the cart",
             });
           }}
         >

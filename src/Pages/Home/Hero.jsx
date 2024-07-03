@@ -38,9 +38,9 @@ export default function Hero() {
             <p className="mt-2 text-lg">
               Discover your style with our latest collection
             </p>
-            <Button className="mt-4 px-4 py-2">
-              <Link to={"/products"}>Shop Now</Link>
-            </Button>
+            <Link to={"/products"}>
+              <Button className="mt-4 px-4 py-2">Shop Now</Button>
+            </Link>
           </CardContent>
         </Card>
         <Carousel className="w-full md:w-1/2 max-w-sm mx-auto md:mx-0">
